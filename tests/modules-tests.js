@@ -285,6 +285,13 @@ case 1: console.log(1); a = 2; break;}}})();`,
 	},
 	{
 		enabled: true,
+		name: 'resolveMemberExpressionsWithDirectAssignment - TN-3',
+		func: __dirname + '/../src/modules/safe/resolveMemberExpressionsWithDirectAssignment',
+		source: `let obj; if (obj.prop) obj.prop = null;`,
+		expected: `let obj; if (obj.prop) obj.prop = null;`,
+	},
+	{
+		enabled: true,
 		name: 'resolveProxyCalls - TP-1',
 		func: __dirname + '/../src/modules/safe/resolveProxyCalls',
 		source: `function call1(a, b) {return a + b;} function call2(c, d) {return call1(c, d);} function call3(e, f) {return call2(e, f);}`,

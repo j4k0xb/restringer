@@ -21,6 +21,7 @@ function resolveMemberExpressionsWithDirectAssignment(arb, candidateFilter = () 
 		const prop = c.property?.value || c.property?.name;
 		const valueUses = c.object.declNode.references.filter(n =>
 			n.parentNode.type === 'MemberExpression' &&
+			n.start > c.start &&
 			(n.parentNode.property.computed ?
 				n.parentNode.property?.value === prop :
 				n.parentNode.property?.name === prop) &&
