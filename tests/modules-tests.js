@@ -413,6 +413,13 @@ case 1: console.log(1); a = 2; break;}}})();`,
 	},
 	{
 		enabled: true,
+		name: 'resolveBuiltinCalls - TN-4',
+		func: __dirname + '/../src/modules/unsafe/resolveBuiltinCalls',
+		source: `function f() {return this.toString();}`,
+		expected: `function f() {return this.toString();}`,
+	},
+	{
+		enabled: true,
 		name: 'resolveDefiniteBinaryExpressions - TP-1',
 		func: __dirname + '/../src/modules/unsafe/resolveDefiniteBinaryExpressions',
 		source: `5 * 3; '2' + 2; '10' - 1; 'o' + 'k'; 'o' - 'k'; 3 - -1;`,

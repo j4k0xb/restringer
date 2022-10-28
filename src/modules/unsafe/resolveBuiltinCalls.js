@@ -28,6 +28,7 @@ function resolveBuiltinCalls(arb, candidateFilter = () => true) {
 		!n.callee.object.declNode &&
 		!skipBuiltinFunctions.includes(n.callee.object?.name) &&
 		!skipIdentifiers.includes(n.callee.object?.name) &&
+		n.callee.object?.type !== 'ThisExpression' &&
 		!skipProperties.includes(n.callee.property?.name || n.callee.property?.value)));
 
 	candidates.push(...arb.ast.filter(n =>
